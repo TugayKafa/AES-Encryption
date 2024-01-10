@@ -22,16 +22,16 @@ const char s_box[256] =
 
 void KeyExpension() {}
 
-void SubBytes(char* state) 
+void SubBytes(char* state)
 {
-	for (int i = 0;i < 16;i++) 
+	for (int i = 0;i < 16;i++)
 	{
 		state[i] = s_box[state[i]];
 	}
 }
 
-void ShiftRows(char* state) 
-{	
+void ShiftRows(char* state)
+{
 	char tmp[16] = {};
 
 	tmp[0] = state[0];
@@ -54,15 +54,21 @@ void ShiftRows(char* state)
 	tmp[14] = state[6];
 	tmp[15] = state[11];
 
-	for (int i = 0; i < 16; i++) 
+	for (int i = 0; i < 16; i++)
 	{
 		state[i] = tmp[i];
 	}
 }
 
 void MixColums() {}
-void AddRoundKey(char* state, char* roundKey) {}
 
+void AddRoundKey(char* state, char* roundKey)
+{
+	for (int i = 0; i < 16;i++) 
+	{
+		state[i] = state[i] ^ roundKey[i];
+	}
+}
 
 void AES_Encrypt(char* message, char* key)
 {
