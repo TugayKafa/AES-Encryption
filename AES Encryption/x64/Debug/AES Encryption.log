@@ -1,2 +1,258 @@
 ﻿  Source.cpp
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(5,26): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(5,26): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(5,44): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(5,44): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(5,74): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(5,74): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(5,80): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(5,80): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(5,86): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(5,86): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,2): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,2): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,8): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,8): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,14): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,26): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,26): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,44): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,44): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,50): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,50): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,56): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,56): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,62): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,62): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,68): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,68): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,74): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,74): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,80): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,80): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,92): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(6,92): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,2): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,2): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,8): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,8): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,14): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,38): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,38): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,44): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,44): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,56): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,56): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,62): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,62): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,68): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,68): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,80): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(7,80): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,8): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,8): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,20): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,20): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,32): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,32): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,44): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,44): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,62): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,62): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,68): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,68): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,74): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,74): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,86): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(8,86): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(9,8): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(9,8): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(9,44): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(9,44): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(9,62): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(9,62): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(9,68): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(9,68): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(9,80): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(9,80): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(9,92): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(9,92): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(10,8): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(10,8): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(10,20): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(10,20): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(10,32): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(10,32): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(10,38): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(10,38): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(10,56): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(10,56): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(10,62): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(10,62): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(10,92): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(10,92): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,2): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,2): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,8): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,8): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,14): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,20): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,20): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,44): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,44): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,56): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,56): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,86): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,86): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,92): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(11,92): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,8): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,8): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,20): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,20): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,26): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,26): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,32): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,32): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,44): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,44): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,50): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,50): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,56): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,56): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,62): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,62): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,80): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,80): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,86): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,86): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,92): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(12,92): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(13,2): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(13,2): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(13,20): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(13,20): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(13,32): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(13,32): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(13,50): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(13,50): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(13,56): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(13,56): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,8): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,8): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,20): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,20): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,38): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,38): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,44): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,44): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,56): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,56): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,62): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,62): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,74): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,74): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,92): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(14,92): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(15,2): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(15,2): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(15,50): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(15,50): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(15,56): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(15,56): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(15,62): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(15,62): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(15,74): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(15,74): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(15,80): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(15,80): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(15,86): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(15,86): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,2): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,2): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,8): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,8): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,26): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,26): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,32): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,32): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,44): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,44): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,62): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,62): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,68): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,68): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,86): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(16,86): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,2): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,2): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,32): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,32): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,38): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,38): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,44): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,44): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,50): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,50): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,56): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,56): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,80): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,80): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,86): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,86): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,92): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(17,92): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(18,14): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(18,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(18,38): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(18,38): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(18,68): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(18,68): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(18,74): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(18,74): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(18,80): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(18,80): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(18,92): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(18,92): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,2): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,2): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,8): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,8): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,14): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,32): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,32): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,38): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,38): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,44): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,44): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,50): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,50): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,62): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,62): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,68): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,68): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,74): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,74): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,92): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(19,92): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,2): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,2): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,8): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,8): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,14): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,14): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,26): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,26): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,32): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,32): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,56): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,56): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,74): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,74): warning C4309: 'initializing': truncation of constant value
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,86): warning C4838: conversion from 'int' to 'const char' requires a narrowing conversion
+C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(20,86): warning C4309: 'initializing': truncation of constant value
   AES Encryption.vcxproj -> C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\x64\Debug\AES Encryption.exe
