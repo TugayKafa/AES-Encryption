@@ -1,5 +1,13 @@
 #include <iostream>
 
+int strLenght(const char* message)
+{
+	int index = 0;
+	while (message[index++] != '\0');
+
+	return index-1;
+}
+
 const unsigned char s_box[256] =
 {
 	0x63, 0x7c,	0x77, 0x7b,	0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76,
@@ -62,7 +70,72 @@ const unsigned char mul3[256] =
 	0x0b,0x08,0x0d,0x0e,0x07,0x04,0x01,0x02,0x13,0x10,0x15,0x16,0x1f,0x1c,0x19,0x1a
 };
 
-void keyExpension() {}
+const unsigned char rcon[256] =
+{
+	0x8d,0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x1b,0x36,0x6c,0xd8,0xab,0x4d,0x9a,
+	0x2f,0x5e,0xbc,0x63,0xc6,0x97,0x35,0x6a,0xd4,0xb3,0x7d,0xfa,0xef,0xc5,0x91,0x39,
+	0x72,0xe4,0xd3,0x8d,0x61,0xc2,0x9f,0x25,0x4a,0x94,0x33,0x66,0xcc,0x83,0x1d,0x3a,
+	0x74,0xe8,0xcb,0xbd,0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x1b,0x36,0x6c,0xd8,
+};
+
+void KeyExpansionCore(unsigned char* in, unsigned char i)
+{
+	//Rotate left
+	unsigned char t = in[0];
+	in[0] = in[1];
+	in[1] = in[2];
+	in[2] = in[3];
+	in[3] = t;
+
+	//unsigned int* q = (unsigned int*)in;
+	//*q = (*q >> 8) | ((*q & 0xff) << 24);
+
+	//S-Box four bytes
+	in[0] = s_box[in[0]];
+	in[1] = s_box[in[1]];
+	in[2] = s_box[in[2]];
+	in[3] = s_box[in[3]];
+
+	//RCon
+	in[0] ^= rcon[i];
+}
+
+void keyExpansion(unsigned char* inputKey, unsigned char* expandedKeys)
+{
+	//The first 16 bytes are original key
+	for (int i = 0;i < 16;i++)
+	{
+		expandedKeys[i] = inputKey[i];
+	}
+
+	int bytesGenerated = 16;//We've generated 16 bytes
+	int rconIteration = 1;//RCon iteration begins at 1;
+	unsigned char temp[4];//Temporary storage for core
+
+	while (bytesGenerated < 176)
+	{
+		//Read 4 bytes for the core
+		for (int i = 0;i < 4;i++)
+		{
+			temp[i] = expandedKeys[i + bytesGenerated - 4];
+		}
+
+		// Perform the core once for each 16 byte key:
+		if (bytesGenerated % 16 == 0)
+		{
+			KeyExpansionCore(temp, rconIteration);
+			rconIteration++;
+		}
+
+		//XOR temp with [bytesGenerated-16], and store in expandedKeys:
+		for (unsigned char a = 0;a < 4;a++)
+		{
+			expandedKeys[bytesGenerated] = 
+				expandedKeys[bytesGenerated - 16] ^ temp[a];
+			bytesGenerated++;
+		}
+	}
+}
 
 void subBytes(unsigned char* state)
 {
@@ -115,12 +188,11 @@ First Matrix is our state and the second one is encryption standart matrix
 	[d2] = [1 1 2 3] [b2]
 	[d3] = [3 1 1 2] [b3]
 	The sum of values from every multiplictions happens with XOR
-	[d0] = 2*b0 ^ 3*b0 ^ 1*b0 ^ 1b0 
+	[d0] = 2*b0 ^ 3*b0 ^ 1*b0 ^ 1b0
 	[d1] = 1*b0 ^ 2*b0 ^ 3*b0 ^ 1b0
 	[d2] = 1*b0 ^ 1*b0 ^ 2*b0 ^ 3b0
 	[d3] = 3*b0 ^ 1*b0 ^ 1*b0 ^ 2b0
 */
-
 void mixColums(unsigned char* state)
 {
 	char tmp[16] = {};
@@ -167,10 +239,13 @@ void aesEncrypt(unsigned char* message, unsigned char* key)
 		state[i] = message[i];
 	}
 
-	int numberOfRounds = 1;
+	int numberOfRounds = 9;
 
-	keyExpension();
-	addRoundKey(state, key);
+	//Expand the keys:
+	unsigned char expandedKey[176];
+	keyExpansion(key, expandedKey);
+
+	addRoundKey(state, key);	//Whitening/AddRoundKey
 
 	//Rounds
 	for (int i = 0; i < numberOfRounds;i++)
@@ -178,17 +253,32 @@ void aesEncrypt(unsigned char* message, unsigned char* key)
 		subBytes(state);
 		shiftRows(state);
 		mixColums(state);
-		addRoundKey(state, key);
+		addRoundKey(state, expandedKey + (16 * (i + 1)));
 	}
 	//Final round
 	subBytes(state);
 	shiftRows(state);
-	addRoundKey(state, key);
+	addRoundKey(state, expandedKey + 160);
+
+	//Copy encrypted state to message:
+	for (int i = 0;i < 16;i++)
+	{
+		message[i] = state[i];
+	}
+}
+
+void printHex(unsigned char x) 
+{
+	if (x / 16 < 10) std::cout << (char)((x / 16) + '0');
+	if (x / 16 >= 10) std::cout << (char)((x / 16-10) + 'A');
+
+	if (x % 16 < 10) std::cout << (char)((x % 16) + '0');
+	if (x % 16 >= 10) std::cout << (char)((x % 16 - 10) + 'A');
 }
 
 int main()
 {
-	unsigned char message[] = "This is message that we will encrypt with AES";
+	unsigned char message[] = "This is a message we will encrypt with AES!";
 	unsigned char key[16] =
 	{
 		1, 2, 3, 4,
@@ -197,7 +287,41 @@ int main()
 		13, 14, 15, 16
 	};
 
-	aesEncrypt(message, key);
+	int originalLen = strLenght((const char*)message);
+	int lenOfPaddedMessage = originalLen;
+
+	//If message size is not 16bytes block, we fill the missing bytes with 0 zeros
+	if (lenOfPaddedMessage % 16 != 0)
+	{
+		lenOfPaddedMessage = (lenOfPaddedMessage / 16 + 1) * 16;
+	}
+
+	unsigned char* paddedMessage = new unsigned char[lenOfPaddedMessage];
+	for (int i = 0; i < lenOfPaddedMessage;i++)
+	{
+		if (i >= originalLen)
+		{
+			paddedMessage[i] = 0;
+		}
+		else
+		{
+			paddedMessage[i] = message[i];
+		}
+	}
+
+	//Encrypted padded message:
+	for (int i = 0;i < lenOfPaddedMessage;i += 16) {
+		aesEncrypt(paddedMessage+i, key);
+	}
+
+	std::cout << "\nEncrypted message:" << std::endl;
+	for (int i = 0;i < lenOfPaddedMessage;i++) 
+	{
+		printHex(paddedMessage[i]);
+		std::cout << " ";
+	}
+
+	delete[] paddedMessage;
 
 	return 0;
 }
