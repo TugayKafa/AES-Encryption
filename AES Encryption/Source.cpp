@@ -1,4 +1,5 @@
 ﻿#include <iostream>
+#include <fstream>
 
 const unsigned char S_BOX[256] =
 {
@@ -276,7 +277,8 @@ void shiftRows(unsigned char* state)
 }
 
 /*
-Mix Columns is matrix multiplication, where we multiply values of hec value of charachters whit encryption standart matrix
+Mix Columns is matrix multiplication,
+where we multiply values of hec value of charachters whit encryption standart matrix.
 First Matrix is our state and the second one is encryption standart matrix
 	2 3 1 1
 	1 2 3 1
@@ -365,14 +367,6 @@ void aesEncrypt(unsigned char* message, unsigned char* key)
 	{
 		message[i] = state[i];
 	}
-
-	//print expanded key -> used to get the key from encrypted message
-	/*std::cout << std::endl;
-	for (int i = 0;i < 176;i++)
-	{
-		if (i != 0 && i % 16 == 0) std::cout << std::endl;
-		std::cout << (int)expandedKey[i] << ", ";
-	}*/
 }
 
 void printHex(unsigned char x)
@@ -462,7 +456,8 @@ void inverseSubBytes(unsigned char* state)
 }
 
 /*
-Inverse Mix Columns is matrix multiplication, where we multiply values of hex value of charachters whith encryption standart matrix
+Inverse Mix Columns is matrix multiplication,
+where we multiply values of hex value of charachters whith encryption standart matrix.
 First Matrix is encryption standart matrix and the second one is our first 4 charachter
 On every 4 charachters we do matrix multiplication
 	14 11 13 9
@@ -541,7 +536,6 @@ void aesDecrypt(unsigned char* message, unsigned char* expandedKey, int block)
 	}
 }
 
-
 bool isHEXSymbol(unsigned char& ch)
 {
 	if ((ch >= 'A' && ch <= 'F') || (ch >= '0' && ch <= '9'))
@@ -560,32 +554,32 @@ bool isHEXSymbol(unsigned char& ch)
 }
 
 int hexCharToDecimal(char hexChar) {
-	
+
 	switch (hexChar) {
-		case '0': return 0;
-		case '1': return 1;
-		case '2': return 2;
-		case '3': return 3;
-		case '4': return 4;
-		case '5': return 5;
-		case '6': return 6;
-		case '7': return 7;
-		case '8': return 8;
-		case '9': return 9;
-		case 'A': return 10;
-		case 'B': return 11;
-		case 'C': return 12;
-		case 'D': return 13;
-		case 'E': return 14;
-		case 'F': return 15;
-		default:
-			return -1;
+	case '0': return 0;
+	case '1': return 1;
+	case '2': return 2;
+	case '3': return 3;
+	case '4': return 4;
+	case '5': return 5;
+	case '6': return 6;
+	case '7': return 7;
+	case '8': return 8;
+	case '9': return 9;
+	case 'A': return 10;
+	case 'B': return 11;
+	case 'C': return 12;
+	case 'D': return 13;
+	case 'E': return 14;
+	case 'F': return 15;
+	default:
+		return -1;
 	}
 }
 
 int countOfWords(unsigned char* message, int lenght)
 {
-	if (!*countOfWords)
+	if (!countOfWords)
 	{
 		return -1;
 	}
@@ -624,7 +618,11 @@ int countOfWords(unsigned char* message, int lenght)
 	return wordsCounter;
 }
 
-void hexToDecimal(unsigned char* encryptedMessage, int originalLen, unsigned char* message, int lenOfOriginalMessage)
+void hexToDecimal
+(
+	unsigned char* encryptedMessage, int originalLen,
+	unsigned char* message, int lenOfOriginalMessage
+)
 {
 	int decimalResult = 0;
 	int messageInd = 0;
@@ -647,7 +645,7 @@ void hexToDecimal(unsigned char* encryptedMessage, int originalLen, unsigned cha
 	}
 }
 
-void decrypt(unsigned char* encryptedMessage, unsigned char* expandedKey)
+void decrypt(unsigned char* encryptedMessage, unsigned char* key)
 {
 	int originalLen = strLenght((const char*)encryptedMessage);
 	int lenOfOriginalMessage = countOfWords(encryptedMessage, originalLen);
@@ -662,12 +660,15 @@ void decrypt(unsigned char* encryptedMessage, unsigned char* expandedKey)
 
 	hexToDecimal(encryptedMessage, originalLen, message, lenOfOriginalMessage);
 
+	unsigned char expandedKey[176] = {};
+	keyExpansion(key, expandedKey);
+
 	//Encrypted padded message:
 	for (int i = lenOfOriginalMessage / 16 - 1;i >= 0;i--) {
 		aesDecrypt(message + i * 16, expandedKey, i);
 	}
 
-	std::cout << "\nDecrypted message:" << std::endl;
+	std::cout << "Decrypted message:" << std::endl;
 	for (int i = 0;i < lenOfOriginalMessage;i++)
 	{
 		std::cout << *(message + i);
@@ -676,36 +677,188 @@ void decrypt(unsigned char* encryptedMessage, unsigned char* expandedKey)
 	delete[] message;
 }
 
+void printStartUp()
+{
+	std::cout << "Hello my friend! This program encrypts/decrypts given message with given key.\n";
+	std::cout << "!!! You have to know that if you want to decrypt a message, you have to know its expanded key";
+	std::cout << " or decrypted message would not be right.";
+	std::cout << std::endl;
+	std::cout << "-------------------------------------------------------------------------------------------------";
+	std::cout << std::endl;
+}
+
+void printMainMenu()
+{
+	std::cout << "Please make your choice\n";
+	std::cout << "1.Encrypt\n";
+	std::cout << "2.Decrypt\n";
+	std::cout << "3.Exit\n";
+}
+
+void printReadMessageMenu()
+{
+	std::cout << "Read a message from:\n";
+	std::cout << "1.Console\n";
+	std::cout << "2.File\n";
+	std::cout << "3.Exit\n";
+}
+
+unsigned char* inputArray()
+{
+	int sizeOfInput = 1; // '\0' minimum
+	unsigned char* inputLine = new unsigned char[sizeOfInput];
+
+	int counter = 0;
+	char inputEl = ' ';
+	//std::cin.get(inputEl);
+	while (std::cin.get(inputEl))
+	{
+		//end of input line
+		if (inputEl == '\n' && counter != 0)
+		{
+			break;
+		}
+
+		if ((inputEl == '\n' && counter == 0))
+		{
+			continue;
+		}
+
+		//if size not enough, increase
+		if (counter == sizeOfInput - 1)
+		{
+			sizeOfInput += 64;
+			unsigned char* newInputLine = new unsigned char[sizeOfInput];
+
+			//save the newest input line
+			for (int i = 0; i < counter; i++)
+			{
+				newInputLine[i] = inputLine[i];
+			}
+
+			delete[] inputLine; //clear memory of old input line
+			inputLine = newInputLine; //set pointer to new input line
+		}
+
+		inputLine[counter] = inputEl;
+		counter++;
+	}
+
+	inputLine[counter] = '\0';
+	return inputLine;
+}
+
+void inputKey(char* key)
+{
+	int sizeOfInput = 16; // '\0' minimum
+	key = new char[sizeOfInput];
+	for (int i = 0;i < sizeOfInput;i++)
+	{
+		int symbol = 0;
+		std::cin >> symbol;
+		key[i] = symbol;
+	}
+}
+
+void readFromConsole(unsigned char*& message, unsigned char*& key)
+{
+	std::cout << "Write your message\n";
+	message = inputArray();
+	std::cout << "Write your key. It has to be 16 charachters without whitespaces!\n";
+	key = inputArray();
+}
+
+void engine()
+{
+	printStartUp();
+	printMainMenu();
+	int choice = 0;
+	std::cin >> choice;
+	unsigned char* message = nullptr;
+	unsigned char* key = {};
+	switch (choice)
+	{
+		case 1:
+		{
+			printReadMessageMenu();
+			std::cin >> choice;
+			switch (choice)
+			{
+				case 1:
+				{
+					readFromConsole(message, key);
+					break;
+				}
+				case 2:
+				{
+					std::cout << "File name:";
+					
+					char* fileName = nullptr;
+					fileName = (char*) inputArray();
+					
+					break;
+				}
+				case 3:
+				{
+					return;
+				}
+				default:
+				{
+					std::cout << "Invalid choice!";
+					return;
+				}
+			}
+			encrypt(message, key);
+			break;
+		}
+		case 2:
+		{
+			printReadMessageMenu();
+			std::cin >> choice;
+			switch (choice)
+			{
+				case 1:
+				{
+					readFromConsole(message, key);
+					break;
+				}
+				case 2:
+				{
+					std::cout << "File name:";
+					
+					char* fileName = nullptr;
+					fileName = (char*)inputArray();
+
+					break;
+				}
+				case 3:
+				{
+					return;
+				}
+				default:
+				{
+					std::cout << "Invalid choice!";
+					return;
+				}
+			}
+			decrypt(message, key);
+			break;
+		}
+		case 3:
+		{
+			return;
+		}
+		default:
+		{
+			std::cout << "Invalid choice!";
+			return;
+		}
+	}
+}
 
 int main()
 {
-	unsigned char message[] = "This is a message we will encrypt with AES!";
-	unsigned char key[16] =
-	{
-		1, 2, 3, 4,
-		5, 6, 7, 8,
-		9, 10, 11, 12,
-		13, 14, 15, 16
-	};
-	encrypt(message, key);
-	std::cout << std::endl;
-
-	unsigned char finalMessage[] = "B6 4B 27 BB 16 15 A6 F5 32 18 6C C5 FA 94 B5 5E 5C  54 EA 1B DF 97 1E 3D E3 1B FC 02 75 22 76 52 D5 7B D5 42 BA 0F 68 50 CD FD 59 B8 EB 0E 83 D1 ";
-	unsigned char expandedKey[176] =
-	{
-		1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16,
-		171, 116, 201, 211, 174, 114, 206, 219, 167, 120, 197, 215, 170, 118, 202, 199,
-		145, 0, 15, 127, 63, 114, 193, 164, 152, 10, 4, 115, 50, 124, 206, 180,
-		133, 139, 130, 92, 186, 249, 67, 248, 34, 243, 71, 139, 16, 143, 137, 63,
-		254, 44, 247, 150, 68, 213, 180, 110, 102, 38, 243, 229, 118, 169, 122, 218,
-		61, 246, 160, 174, 121, 35, 20, 192, 31, 5, 231, 37, 105, 172, 157, 255,
-		140, 168, 182, 87, 245, 139, 162, 151, 234, 142, 69, 178, 131, 34, 216, 77,
-		95, 201, 85, 187, 170, 66, 247, 44, 64, 204, 178, 158, 195, 238, 106, 211,
-		247, 203, 51, 149, 93, 137, 196, 185, 29, 69, 118, 39, 222, 171, 28, 244,
-		142, 87, 140, 136, 211, 222, 72, 49, 206, 155, 62, 22, 16, 48, 34, 226,
-		188, 196, 20, 66, 111, 26, 92, 115, 161, 129, 98, 101, 177, 177, 64, 135
-	};
-	decrypt(finalMessage, expandedKey);
+	engine();
 
 	return 0;
 }
