@@ -1,5 +1,36 @@
-16 0d 48 fa 5a 41 94 b2 fb d2 8f d3 cd 32 75
-1234567891234567
+I am very good at programmin!
+TugayKafa1123456
 
-This is
-123456789123456789
+
+You only have to change first two lines. If you read from another file, you have to know that
+First line will be your message for encryption/decryption and second line will be your key!
+
+Test inputs:
+
+Decrypted message: 16 0d 48 fa 5a 41 94 b2 fb d2 8f d3 cd 32 75 4b
+Key: 1234567891234567
+Output in "result.txt" file: This is
+
+Message: This is
+Key: 1234567891234567
+Output in "result.txt" file: 16 0d 48 fa 5a 41 94 b2 fb d2 8f d3 cd 32 75 4b
+
+Decrypted message: 21 FF 5C BD 66 91 AA CD DA 54 8E F1 22 47 64 D0 5E 76 88 E9 FC 62 29 06 B6 C6 8B DA 5E 47 DD 48 77 12 3F 0E 0B D2 65 D4 32 28 92 0D FF 30 F0 F4 
+Key: abcdabcdabcdabcd
+Output in "result.txt" file: This is message that we will encrypt with AES!
+
+Message: This is message that we will encrypt with AES!
+Key: 1234567891234567
+Output in "result.txt" file: 21 FF 5C BD 66 91 AA CD DA 54 8E F1 22 47 64 D0 5E 76 88 E9 FC 62 29 06 B6 C6 8B DA 5E 47 DD 48 77 12 3F 0E 0B D2 65 D4 32 28 92 0D FF 30 F0 F4
+
+Decrypted message: 16 0d 48 fa 5a 41 94 b2 fb d2 8f d3 cd 32 75 4b
+Key: 1234567891234567
+Output in "result.txt" file: This is
+
+Message: This is
+Key: 1234567891234567
+Output in "result.txt" file: 16 0d 48 fa 5a 41 94 b2 fb d2 8f d3 cd 32 75 4b
+
+Decrypted message: 7A E0 C8 AD 6A 55 26 39 16 D3 B0 A2 A4 87 70 24 F2 40 B9 0D 58 1C DB 69 58 85 7F 80 70 1A 3C F5 
+Key: TugayKafa1123456
+Output in "result.txt" file: I am very good in programmin!

@@ -2,6 +2,7 @@
 #include <fstream>
 #include <string>
 
+//Rijndael S-box lookup table
 const unsigned char S_BOX[256] =
 {
 	0x63, 0x7c,	0x77, 0x7b,	0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76,
@@ -22,6 +23,7 @@ const unsigned char S_BOX[256] =
 	0x8c, 0xa1, 0x89 ,0x0d,	0xbf, 0xe6,	0x42, 0x68,	0x41, 0x99,	0x2d, 0x0f,	0xb0, 0x54,	0xbb, 0x16
 };
 
+//Rijndael S-box lookup table
 const unsigned char INVERSE_S_BOX[256] =
 {
 	0x52,	0x09,	0x6a,	0xd5,	0x30,	0x36,	0xa5,	0x38,	0xbf,	0x40,	0xa3,	0x9e,	0x81,	0xf3,	0xd7,	0xfb,
@@ -387,22 +389,24 @@ void printHex(unsigned char x)
 	if (x % 16 >= 10) std::cout << (char)((x % 16 - 10) + 'A');
 }
 
-void printEncryptedMessageToConsole(const unsigned char* message)
+void printEncryptedMessageToConsole(const unsigned char* message,int lenght)
 {
 	std::cout << "Encrypted message:" << std::endl;
-	for (int i = 0;i < 16;i++)
+
+
+	for (int i = 0;i < lenght;i++)
 	{
 		printHex(message[i]);
 		std::cout << " ";
 	}
 }
 
-void printEncryptedMessageToFile(unsigned char* message)
+void printEncryptedMessageToFile(unsigned char* message, int lenght)
 {
 	std::ofstream file("result.txt");
 
 	file << "Encrypted message:" << std::endl;
-	for (int i = 0;i < 16;i++)
+	for (int i = 0;i < lenght;i++)
 	{
 		if (message[i] / 16 < 10) file << (char)((message[i] / 16) + '0');
 		if (message[i] / 16 >= 10) file << (char)((message[i] / 16 - 10) + 'A');
@@ -994,8 +998,10 @@ void engine()
 		case 1:
 		{
 			readFromConsole(message, key);
+			//We have calculate lenght of result message without strLenght, because we can have '\0' symbol in our encrypted message
+			int resultLenght = (strLenght((char*)message) / 16 + 1) * 16;
 			encrypt(message, key);
-			printEncryptedMessageToConsole(message);
+			printEncryptedMessageToConsole(message, resultLenght);
 			break;
 		}
 		case 2:
@@ -1004,8 +1010,10 @@ void engine()
 			{
 				return;
 			}
+			//We have calculate lenght of result message without strLenght, because we can have '\0' symbol in our encrypted message
+			int resultLenght = (strLenght((char*)message) / 16 + 1) * 16;
 			encrypt(message, key);
-			printEncryptedMessageToFile(message);
+			printEncryptedMessageToFile(message, resultLenght);
 			break;
 		}
 		case 3:
