@@ -17,8 +17,12 @@
 #include <fstream>
 #include <string>
 
+const int TABLES_SIZE = 256;
+const int BITS_16 = 16;
+const int BITS_176 = 176;
+
 //Rijndael S-box lookup table
-const unsigned char S_BOX[256] =
+const unsigned char S_BOX[TABLES_SIZE] =
 {
 	0x63, 0x7c,	0x77, 0x7b,	0xf2, 0x6b, 0x6f, 0xc5, 0x30, 0x01, 0x67, 0x2b, 0xfe, 0xd7, 0xab, 0x76,
 	0xca, 0x82,	0xc9 ,0x7d,	0xfa, 0x59,	0x47, 0xf0,	0xad, 0xd4,	0xa2, 0xaf,	0x9c, 0xa4,	0x72, 0xc0,
@@ -39,7 +43,7 @@ const unsigned char S_BOX[256] =
 };
 
 //Rijndael S-box lookup table
-const unsigned char INVERSE_S_BOX[256] =
+const unsigned char INVERSE_S_BOX[TABLES_SIZE] =
 {
 	0x52,	0x09,	0x6a,	0xd5,	0x30,	0x36,	0xa5,	0x38,	0xbf,	0x40,	0xa3,	0x9e,	0x81,	0xf3,	0xd7,	0xfb,
 	0x7c,	0xe3,	0x39,	0x82,	0x9b,	0x2f,	0xff,	0x87,	0x34,	0x8e,	0x43,	0x44,	0xc4,	0xde,	0xe9,	0xcb,
@@ -60,7 +64,7 @@ const unsigned char INVERSE_S_BOX[256] =
 };
 
 //Lookup table for multiplication by 2
-const unsigned char mul2[256] =
+const unsigned char mul2[TABLES_SIZE] =
 {
 	0x00,0x02,0x04,0x06,0x08,0x0a,0x0c,0x0e,0x10,0x12,0x14,0x16,0x18,0x1a,0x1c,0x1e,
 	0x20,0x22,0x24,0x26,0x28,0x2a,0x2c,0x2e,0x30,0x32,0x34,0x36,0x38,0x3a,0x3c,0x3e,
@@ -81,7 +85,7 @@ const unsigned char mul2[256] =
 };
 
 //Lookup table for multiplication by 3
-const unsigned char mul3[256] =
+const unsigned char mul3[TABLES_SIZE] =
 {
 	0x00,0x03,0x06,0x05,0x0c,0x0f,0x0a,0x09,0x18,0x1b,0x1e,0x1d,0x14,0x17,0x12,0x11,
 	0x30,0x33,0x36,0x35,0x3c,0x3f,0x3a,0x39,0x28,0x2b,0x2e,0x2d,0x24,0x27,0x22,0x21,
@@ -102,7 +106,7 @@ const unsigned char mul3[256] =
 };
 
 //Lookup table for multiplication by 9
-const unsigned char mul9[256] =
+const unsigned char mul9[TABLES_SIZE] =
 {
 	0x00,0x09,0x12,0x1b,0x24,0x2d,0x36,0x3f,0x48,0x41,0x5a,0x53,0x6c,0x65,0x7e,0x77,
 	0x90,0x99,0x82,0x8b,0xb4,0xbd,0xa6,0xaf,0xd8,0xd1,0xca,0xc3,0xfc,0xf5,0xee,0xe7,
@@ -123,7 +127,7 @@ const unsigned char mul9[256] =
 };
 
 //Lookup table for multiplication by 11
-const unsigned char mul11[256] =
+const unsigned char mul11[TABLES_SIZE] =
 {
 	0x00,0x0b,0x16,0x1d,0x2c,0x27,0x3a,0x31,0x58,0x53,0x4e,0x45,0x74,0x7f,0x62,0x69,
 	0xb0,0xbb,0xa6,0xad,0x9c,0x97,0x8a,0x81,0xe8,0xe3,0xfe,0xf5,0xc4,0xcf,0xd2,0xd9,
@@ -144,7 +148,7 @@ const unsigned char mul11[256] =
 };
 
 //Lookup table for multiplication by 13
-const unsigned char mul13[256] =
+const unsigned char mul13[TABLES_SIZE] =
 {
 	0x00,0x0d,0x1a,0x17,0x34,0x39,0x2e,0x23,0x68,0x65,0x72,0x7f,0x5c,0x51,0x46,0x4b,
 	0xd0,0xdd,0xca,0xc7,0xe4,0xe9,0xfe,0xf3,0xb8,0xb5,0xa2,0xaf,0x8c,0x81,0x96,0x9b,
@@ -165,7 +169,7 @@ const unsigned char mul13[256] =
 };
 
 //Lookup table for multiplication by 14
-const unsigned char mul14[256] =
+const unsigned char mul14[TABLES_SIZE] =
 {
 	0x00,0x0e,0x1c,0x12,0x38,0x36,0x24,0x2a,0x70,0x7e,0x6c,0x62,0x48,0x46,0x54,0x5a,
 	0xe0,0xee,0xfc,0xf2,0xd8,0xd6,0xc4,0xca,0x90,0x9e,0x8c,0x82,0xa8,0xa6,0xb4,0xba,
@@ -186,7 +190,7 @@ const unsigned char mul14[256] =
 };
 
 //This RCON lookup table is smaller because we do not need more values, because we are using 128-bit key
-const unsigned char rcon[256] =
+const unsigned char rcon[TABLES_SIZE] =
 {
 	0x8d,0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x1b,0x36,0x6c,0xd8,0xab,0x4d,0x9a,
 	0x2f,0x5e,0xbc,0x63,0xc6,0x97,0x35,0x6a,0xd4,0xb3,0x7d,0xfa,0xef,0xc5,0x91,0x39,
@@ -224,16 +228,16 @@ void KeyExpansionCore(unsigned char* in, unsigned char i)
 void keyExpansion(unsigned char* inputKey, unsigned char* expandedKeys)
 {
 	//The first 16 bytes are original key
-	for (int i = 0;i < 16;i++)
+	for (int i = 0;i < BITS_16;i++)
 	{
 		expandedKeys[i] = inputKey[i];
 	}
 
-	int bytesGenerated = 16;//We've generated 16 bytes
+	int bytesGenerated = BITS_16;//We've generated 16 bytes
 	int rconIteration = 1;//RCon iteration begins at 1;
 	unsigned char temp[4];//Temporary storage for core
 
-	while (bytesGenerated < 176)
+	while (bytesGenerated < BITS_176)
 	{
 		//Read 4 bytes for the core
 		for (int i = 0;i < 4;i++)
@@ -242,7 +246,7 @@ void keyExpansion(unsigned char* inputKey, unsigned char* expandedKeys)
 		}
 
 		// Perform the core once for each 16 byte key:
-		if (bytesGenerated % 16 == 0)
+		if (bytesGenerated % BITS_16 == 0)
 		{
 			KeyExpansionCore(temp, rconIteration);
 			rconIteration++;
@@ -252,7 +256,7 @@ void keyExpansion(unsigned char* inputKey, unsigned char* expandedKeys)
 		for (unsigned char a = 0;a < 4;a++)
 		{
 			expandedKeys[bytesGenerated] =
-				expandedKeys[bytesGenerated - 16] ^ temp[a];
+				expandedKeys[bytesGenerated - BITS_16] ^ temp[a];
 			bytesGenerated++;
 		}
 	}
@@ -261,7 +265,7 @@ void keyExpansion(unsigned char* inputKey, unsigned char* expandedKeys)
 //sub state values with S_BOX values
 void subBytes(unsigned char* state)
 {
-	for (int i = 0;i < 16;i++)
+	for (int i = 0;i < BITS_16;i++)
 	{
 		state[i] = S_BOX[state[i]];
 	}
@@ -274,7 +278,7 @@ Shift fourth row by three to left
 */
 void shiftRows(unsigned char* state)
 {
-	char tmp[16] = {};
+	char tmp[BITS_16] = {};
 
 	tmp[0] = state[0];
 	tmp[1] = state[5];
@@ -296,7 +300,7 @@ void shiftRows(unsigned char* state)
 	tmp[14] = state[6];
 	tmp[15] = state[11];
 
-	for (int i = 0; i < 16; i++)
+	for (int i = 0; i < BITS_16; i++)
 	{
 		state[i] = tmp[i];
 	}
@@ -323,7 +327,7 @@ First Matrix is our state and the second one is encryption standart matrix
 */
 void mixColums(unsigned char* state)
 {
-	char tmp[16] = {};
+	char tmp[BITS_16] = {};
 
 	tmp[0] = (unsigned char)(mul2[state[0]] ^ mul3[state[1]] ^ state[2] ^ state[3]);
 	tmp[1] = (unsigned char)(state[0] ^ mul2[state[1]] ^ mul3[state[2]] ^ state[3]);
@@ -345,7 +349,7 @@ void mixColums(unsigned char* state)
 	tmp[14] = (unsigned char)(state[12] ^ state[13] ^ mul2[state[14]] ^ mul3[state[15]]);
 	tmp[15] = (unsigned char)(mul3[state[12]] ^ state[13] ^ state[14] ^ mul2[state[15]]);
 
-	for (int i = 0;i < 16;i++)
+	for (int i = 0;i < BITS_16;i++)
 	{
 		state[i] = tmp[i];
 	}
@@ -353,7 +357,7 @@ void mixColums(unsigned char* state)
 
 void addRoundKey(unsigned char* state, unsigned char* roundKey)
 {
-	for (int i = 0; i < 16;i++)
+	for (int i = 0; i < BITS_16;i++)
 	{
 		state[i] = state[i] ^ roundKey[i];
 	}
@@ -361,8 +365,8 @@ void addRoundKey(unsigned char* state, unsigned char* roundKey)
 
 void aesEncrypt(unsigned char* message, unsigned char* key)
 {
-	unsigned char state[16] = {};
-	for (int i = 0;i < 16;i++)
+	unsigned char state[BITS_16] = {};
+	for (int i = 0;i < BITS_16;i++)
 	{
 		state[i] = message[i];
 	}
@@ -370,7 +374,7 @@ void aesEncrypt(unsigned char* message, unsigned char* key)
 	int numberOfRounds = 9;
 
 	//Expand the keys:
-	unsigned char expandedKey[176];
+	unsigned char expandedKey[BITS_176];
 	keyExpansion(key, expandedKey);
 
 	addRoundKey(state, key);	//Whitening/AddRoundKey
@@ -381,12 +385,12 @@ void aesEncrypt(unsigned char* message, unsigned char* key)
 		subBytes(state);
 		shiftRows(state);
 		mixColums(state);
-		addRoundKey(state, expandedKey + (16 * (i + 1)));
+		addRoundKey(state, expandedKey + (BITS_16 * (i + 1)));
 	}
 	//Final round
 	subBytes(state);
 	shiftRows(state);
-	addRoundKey(state, expandedKey + 160);
+	addRoundKey(state, expandedKey + BITS_16*10);
 
 	//Copy encrypted state to message:
 	for (int i = 0;i < 16;i++)
@@ -397,11 +401,11 @@ void aesEncrypt(unsigned char* message, unsigned char* key)
 
 void printHex(unsigned char x)
 {
-	if (x / 16 < 10) std::cout << (char)((x / 16) + '0');
-	if (x / 16 >= 10) std::cout << (char)((x / 16 - 10) + 'A');
+	if (x / BITS_16 < 10) std::cout << (char)((x / BITS_16) + '0');
+	if (x / BITS_16 >= 10) std::cout << (char)((x / BITS_16 - 10) + 'A');
 
-	if (x % 16 < 10) std::cout << (char)((x % 16) + '0');
-	if (x % 16 >= 10) std::cout << (char)((x % 16 - 10) + 'A');
+	if (x % BITS_16 < 10) std::cout << (char)((x % BITS_16) + '0');
+	if (x % BITS_16 >= 10) std::cout << (char)((x % BITS_16 - 10) + 'A');
 }
 
 void printEncryptedMessageToConsole(const unsigned char* message,int lenght)
@@ -423,11 +427,11 @@ void printEncryptedMessageToFile(unsigned char* message, int lenght)
 	file << "Encrypted message:" << std::endl;
 	for (int i = 0;i < lenght;i++)
 	{
-		if (message[i] / 16 < 10) file << (char)((message[i] / 16) + '0');
-		if (message[i] / 16 >= 10) file << (char)((message[i] / 16 - 10) + 'A');
+		if (message[i] / BITS_16 < 10) file << (char)((message[i] / BITS_16) + '0');
+		if (message[i] / BITS_16 >= 10) file << (char)((message[i] / BITS_16 - 10) + 'A');
 
-		if (message[i] % 16 < 10) file << (char)((message[i] % 16) + '0');
-		if (message[i] % 16 >= 10) file << (char)((message[i] % 16 - 10) + 'A');
+		if (message[i] % BITS_16 < 10) file << (char)((message[i] % BITS_16) + '0');
+		if (message[i] % BITS_16 >= 10) file << (char)((message[i] % BITS_16 - 10) + 'A');
 		file << " ";
 	}
 
@@ -440,9 +444,9 @@ void encrypt(unsigned char*& message, unsigned char  key[16])
 	int lenOfPaddedMessage = originalLen;
 
 	//If message size is not 16 bytes block, we fill the missing bytes with 0 zeros
-	if (lenOfPaddedMessage % 16 != 0)
+	if (lenOfPaddedMessage % BITS_16 != 0)
 	{
-		lenOfPaddedMessage = (lenOfPaddedMessage / 16 + 1) * 16;
+		lenOfPaddedMessage = (lenOfPaddedMessage / BITS_16 + 1) * BITS_16;
 	}
 
 	unsigned char* paddedMessage = new unsigned char[lenOfPaddedMessage];
@@ -459,7 +463,7 @@ void encrypt(unsigned char*& message, unsigned char  key[16])
 	}
 
 	//Encrypted padded message:
-	for (int i = 0;i < lenOfPaddedMessage;i += 16) {
+	for (int i = 0;i < lenOfPaddedMessage;i += BITS_16) {
 		aesEncrypt(paddedMessage + i, key);
 	}
 
@@ -469,7 +473,7 @@ void encrypt(unsigned char*& message, unsigned char  key[16])
 //Reverse shifted rows
 void reverseShiftRows(unsigned char* state)
 {
-	char tmp[16] = {};
+	char tmp[BITS_16] = {};
 
 	tmp[0] = state[0];
 	tmp[5] = state[1];
@@ -491,7 +495,7 @@ void reverseShiftRows(unsigned char* state)
 	tmp[6] = state[14];
 	tmp[11] = state[15];
 
-	for (int i = 0; i < 16; i++)
+	for (int i = 0; i < BITS_16; i++)
 	{
 		state[i] = tmp[i];
 	}
@@ -500,7 +504,7 @@ void reverseShiftRows(unsigned char* state)
 //Get the previous round state bytes
 void inverseSubBytes(unsigned char* state)
 {
-	for (int i = 0;i < 16;i++)
+	for (int i = 0;i < BITS_16;i++)
 	{
 		state[i] = INVERSE_S_BOX[state[i]];
 	}
@@ -528,7 +532,7 @@ On every 4 charachters we do matrix multiplication
 */
 void inverseMixColums(unsigned char* state)
 {
-	char tmp[16] = {};
+	char tmp[BITS_16] = {};
 
 	tmp[0] = (unsigned char)(mul14[state[0]] ^ mul11[state[1]] ^ mul13[state[2]] ^ mul9[state[3]]);
 	tmp[1] = (unsigned char)(mul9[state[0]] ^ mul14[state[1]] ^ mul11[state[2]] ^ mul13[state[3]]);
@@ -550,7 +554,7 @@ void inverseMixColums(unsigned char* state)
 	tmp[14] = (unsigned char)(mul13[state[12]] ^ mul9[state[13]] ^ mul14[state[14]] ^ mul11[state[15]]);
 	tmp[15] = (unsigned char)(mul11[state[12]] ^ mul13[state[13]] ^ mul9[state[14]] ^ mul14[state[15]]);
 
-	for (int i = 0;i < 16;i++)
+	for (int i = 0;i < BITS_16;i++)
 	{
 		state[i] = tmp[i];
 	}
@@ -558,20 +562,20 @@ void inverseMixColums(unsigned char* state)
 
 void aesDecrypt(unsigned char* message, unsigned char* expandedKey, int block)
 {
-	unsigned char state[16] = {};
-	for (int i = 0;i < 16;i++)
+	unsigned char state[BITS_16] = {};
+	for (int i = 0;i < BITS_16;i++)
 	{
 		state[i] = message[i];
 	}
 
-	addRoundKey(state, expandedKey + 160);
+	addRoundKey(state, expandedKey + BITS_16*10);
 	reverseShiftRows(state);
 	inverseSubBytes(state);
 	int numberOfRounds = 9;
 
 	for (int i = numberOfRounds; i > 0;i--)
 	{
-		addRoundKey(state, expandedKey + (16 * (i)));
+		addRoundKey(state, expandedKey + (BITS_16 * (i)));
 		inverseMixColums(state);
 		reverseShiftRows(state);
 		inverseSubBytes(state);
@@ -580,7 +584,7 @@ void aesDecrypt(unsigned char* message, unsigned char* expandedKey, int block)
 	addRoundKey(state, expandedKey);
 
 	//Copy decrypted state to message:
-	for (int i = 0;i < 16;i++)
+	for (int i = 0;i < BITS_16;i++)
 	{
 		message[i] = state[i];
 	}
@@ -606,25 +610,75 @@ bool isHEXSymbol(unsigned char& ch)
 
 int hexCharToDecimal(char hexChar) {
 
-	switch (hexChar) {
-	case '0': return 0;
-	case '1': return 1;
-	case '2': return 2;
-	case '3': return 3;
-	case '4': return 4;
-	case '5': return 5;
-	case '6': return 6;
-	case '7': return 7;
-	case '8': return 8;
-	case '9': return 9;
-	case 'A': return 10;
-	case 'B': return 11;
-	case 'C': return 12;
-	case 'D': return 13;
-	case 'E': return 14;
-	case 'F': return 15;
-	default:
-		return -1;
+	switch (hexChar) 
+	{
+		case '0': 
+		{
+			return 0;
+		}
+		case '1': 
+		{
+			return 1;
+		}
+		case '2': 
+		{
+			return 2;
+		}
+		case '3': 
+		{
+			return 3;
+		}
+		case '4': 
+		{
+			return 4;
+		}
+		case '5': 
+		{
+			return 5;
+		}
+		case '6': 
+		{
+			return 6;
+		}
+		case '7':
+		{
+			return 7;
+		}
+		case '8': 
+		{
+			return 8;
+		}
+		case '9': 
+		{
+			return 9;
+		}
+		case 'A': 
+		{
+			return 10;
+		}
+		case 'B':
+		{ 
+			return 11;
+		}
+		case 'C': 
+		{
+			return 12;
+		}
+		case 'D': 
+		{
+			return 13;
+		}
+		case 'E': {
+			return 14;
+		}
+		case 'F':
+		{
+			return 15;
+		}
+		default:
+		{
+			return -1;
+		}
 	}
 }
 
@@ -667,7 +721,7 @@ int countOfWords(unsigned char* message, int lenght)
 		wordsCounter++;
 	}
 
-	if (wordsCounter % 16 == 0)
+	if (wordsCounter % BITS_16 == 0)
 	{
 		return wordsCounter;
 	}
@@ -690,7 +744,7 @@ void hexToDecimal
 	{
 		if (isHEXSymbol(encryptedMessage[i]))
 		{
-			decimalResult = 16 * decimalResult + hexCharToDecimal(encryptedMessage[i]);
+			decimalResult = BITS_16 * decimalResult + hexCharToDecimal(encryptedMessage[i]);
 		}
 		else if (i > 0 && encryptedMessage[i - 1] != ' ')
 		{
@@ -754,10 +808,11 @@ bool decrypt(unsigned char*& encryptedMessage, unsigned char* key)
 	unsigned char expandedKey[176] = {};
 	keyExpansion(key, expandedKey);
 
-	int blocks = lenOfOriginalMessage / 16;
+	int blocks = lenOfOriginalMessage / BITS_16;
 	//Encrypted padded message:
-	for (int i = blocks - 1;i >= 0;i--) {
-		aesDecrypt(message + i * 16, expandedKey, i);
+	for (int i = blocks - 1;i >= 0;i--)
+	{
+		aesDecrypt(message + i * BITS_16, expandedKey, i);
 	}
 
 	encryptedMessage = message;
@@ -836,7 +891,7 @@ unsigned char* inputArrayFromConsole()
 
 void inputKeyFromConsole(char* key)
 {
-	int sizeOfInput = 16;
+	int sizeOfInput = BITS_16;
 	key = new char[sizeOfInput];
 	for (int i = 0;i < sizeOfInput;i++)
 	{
@@ -871,35 +926,35 @@ void readFromConsole(unsigned char*& message, unsigned char*& key)
 //validation for file name symbols
 bool isAllowedSymbol(char symbol)
 {
+	//Here we need validation for emojys and alt codes too
 	switch (symbol)
-		//Here we need validation for emojys and alt codes too
 	{
-	case '#':
-	case '%':
-	case '&':
-	case '{':
-	case '}':
-	case '\\':
-	case '<':
-	case '>':
-	case '*':
-	case '?':
-	case '/':
-	case ' ':
-	case '$':
-	case '!':
-	case '\"':
-	case '\'':
-	case ':':
-	case '@':
-	case '+':
-	case '`':
-	case '|':
-	case '=':
-	{
-		"You have unallowed symbol in your file name!!\n";
-		return false;
-	}
+		case '#':
+		case '%':
+		case '&':
+		case '{':
+		case '}':
+		case '\\':
+		case '<':
+		case '>':
+		case '*':
+		case '?':
+		case '/':
+		case ' ':
+		case '$':
+		case '!':
+		case '\"':
+		case '\'':
+		case ':':
+		case '@':
+		case '+':
+		case '`':
+		case '|':
+		case '=':
+		{
+			"You have unallowed symbol in your file name!!\n";
+			return false;
+		}
 	}
 	return true;
 }
@@ -962,10 +1017,12 @@ bool readFromFile(unsigned char*& message, unsigned char*& key)
 		std::ifstream MyReadFile(fileName);
 		int counter = 0;
 
-		if (MyReadFile.is_open()) {
+		if (MyReadFile.is_open()) 
+		{
 			while (!MyReadFile.eof() && counter < 2)
 			{
-				if (counter == 0) {
+				if (counter == 0) 
+				{
 					std::getline(MyReadFile, line);
 					message = StringToCharArray(line);
 					counter++;
@@ -979,7 +1036,8 @@ bool readFromFile(unsigned char*& message, unsigned char*& key)
 			}
 			MyReadFile.close();
 		}
-		else {
+		else 
+		{
 			std::cout << "File does not exist!";
 			return false;
 		}
@@ -1004,31 +1062,84 @@ void engine()
 	unsigned char* key = {};
 	switch (choice)
 	{
-	case 1:
-	{
-		printReadMessageMenu();
-		std::cin >> choice;
-		switch (choice)
-		{
 		case 1:
 		{
-			readFromConsole(message, key);
-			//We have calculate lenght of result message without strLenght, because we can have '\0' symbol in our encrypted message
-			int resultLenght = (strLenght((char*)message) / 16 + 1) * 16;
-			encrypt(message, key);
-			printEncryptedMessageToConsole(message, resultLenght);
+			printReadMessageMenu();
+			std::cin >> choice;
+			switch (choice)
+			{
+				case 1:
+				{
+					readFromConsole(message, key);
+					//We have calculate lenght of result message without strLenght,
+					//because we can have '\0' symbol in our encrypted message
+					int resultLenght = (strLenght((char*)message) / BITS_16 + 1) * BITS_16;
+					encrypt(message, key);
+					printEncryptedMessageToConsole(message, resultLenght);
+					break;
+				}
+				case 2:
+				{
+					if (!readFromFile(message, key))
+					{
+						return;
+					}
+					//We have calculate lenght of result message without strLenght,
+					//because we can have '\0' symbol in our encrypted message
+					int resultLenght = (strLenght((char*)message) / BITS_16 + 1) * BITS_16;
+					encrypt(message, key);
+					printEncryptedMessageToFile(message, resultLenght);
+					break;
+				}
+				case 3:
+				{
+					return;
+				}
+				default:
+				{
+					std::cout << "Invalid choice!";
+					return;
+				}
+			}
 			break;
 		}
 		case 2:
 		{
-			if (!readFromFile(message, key))
+			printReadMessageMenu();
+			std::cin >> choice;
+			switch (choice)
 			{
-				return;
+				case 1:
+				{
+					readFromConsole(message, key);
+					if (decrypt(message, key))
+					{
+						printDecryptedMessageToConsole(message);
+					}
+					break;
+				}
+				case 2:
+				{
+					if (!readFromFile(message, key))
+					{
+						return;
+					}
+					if (decrypt(message, key))
+					{
+						printDecryptedMessageToFile(message);
+					}
+					break;
+				}
+				case 3:
+				{
+					return;
+				}
+				default:
+				{
+					std::cout << "Invalid choice!";
+					return;
+				}
 			}
-			//We have calculate lenght of result message without strLenght, because we can have '\0' symbol in our encrypted message
-			int resultLenght = (strLenght((char*)message) / 16 + 1) * 16;
-			encrypt(message, key);
-			printEncryptedMessageToFile(message, resultLenght);
 			break;
 		}
 		case 3:
@@ -1040,57 +1151,6 @@ void engine()
 			std::cout << "Invalid choice!";
 			return;
 		}
-		}
-		break;
-	}
-	case 2:
-	{
-		printReadMessageMenu();
-		std::cin >> choice;
-		switch (choice)
-		{
-		case 1:
-		{
-			readFromConsole(message, key);
-			if (decrypt(message, key))
-			{
-				printDecryptedMessageToConsole(message);
-			}
-			break;
-		}
-		case 2:
-		{
-			if (!readFromFile(message, key))
-			{
-				return;
-			}
-			if (decrypt(message, key))
-			{
-				printDecryptedMessageToFile(message);
-			}
-			break;
-		}
-		case 3:
-		{
-			return;
-		}
-		default:
-		{
-			std::cout << "Invalid choice!";
-			return;
-		}
-		}
-		break;
-	}
-	case 3:
-	{
-		return;
-	}
-	default:
-	{
-		std::cout << "Invalid choice!";
-		return;
-	}
 	}
 
 	delete[] message;
