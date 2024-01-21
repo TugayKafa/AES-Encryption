@@ -1,5 +1,0 @@
-﻿  Source.cpp
-C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(688,6): warning C4551: function call missing argument list
-C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(906,36): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
-C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\AES Encryption\Source.cpp(819): warning C4715: 'decrypt': not all control paths return a value
-  AES Encryption.vcxproj -> C:\Users\TuGaY\Documents\c++ - SU\AES Encryption\AES-Encryption\x64\Debug\AES Encryption.exe
