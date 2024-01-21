@@ -379,7 +379,35 @@ void printHex(unsigned char x)
 	if (x % 16 >= 10) std::cout << (char)((x % 16 - 10) + 'A');
 }
 
-void encrypt(unsigned char* message, unsigned char  key[16])
+void printEncryptedMessageToConsole(const unsigned char* message)
+{
+	std::cout << "Encrypted message:" << std::endl;
+	for (int i = 0;i < 16;i++)
+	{
+		printHex(message[i]);
+		std::cout << " ";
+	}
+}
+
+void printEncryptedMessageToFile(unsigned char* message)
+{
+	std::ofstream file("result.txt");
+
+	file << "Encrypted message:" << std::endl;
+	for (int i = 0;i < 16;i++)
+	{
+		if (message[i] / 16 < 10) file << (char)((message[i] / 16) + '0');
+		if (message[i] / 16 >= 10) file << (char)((message[i] / 16 - 10) + 'A');
+
+		if (message[i] % 16 < 10) file << (char)((message[i] % 16) + '0');
+		if (message[i] % 16 >= 10) file << (char)((message[i] % 16 - 10) + 'A');
+		file << " ";
+	}
+
+	file.close();
+}
+
+void encrypt(unsigned char*& message, unsigned char  key[16])
 {
 	int originalLen = strLenght((const char*)message);
 	int lenOfPaddedMessage = originalLen;
@@ -408,14 +436,7 @@ void encrypt(unsigned char* message, unsigned char  key[16])
 		aesEncrypt(paddedMessage + i, key);
 	}
 
-	std::cout << "Encrypted message:" << std::endl;
-	for (int i = 0;i < lenOfPaddedMessage;i++)
-	{
-		printHex(paddedMessage[i]);
-		std::cout << " ";
-	}
-
-	delete[] paddedMessage;
+	message = paddedMessage;
 }
 
 void reverseShiftRows(unsigned char* state)
@@ -646,7 +667,33 @@ void hexToDecimal
 	}
 }
 
-void decrypt(unsigned char* encryptedMessage, unsigned char* key)
+void printDecryptedMessageToConsole(unsigned char* message)
+{
+	int lenght = strLenght((char*)message);
+
+	std::cout << "Decrypted message:" << std::endl;
+	for (int i = 0;i < lenght;i++)
+	{
+		std::cout << *(message + i);
+	}
+}
+
+void printDecryptedMessageToFile(unsigned char* message)
+{
+	int lenght = strLenght((char*)message);
+
+	std::ofstream file("result.txt");
+
+	file << "Decrypted message:" << std::endl;
+	for (int i = 0;i < lenght;i++)
+	{
+		file << *(message + i);
+	}
+
+	file.close();
+}
+
+void decrypt(unsigned char*& encryptedMessage, unsigned char* key)
 {
 	int originalLen = strLenght((const char*)encryptedMessage);
 	int lenOfOriginalMessage = countOfWords(encryptedMessage, originalLen);
@@ -669,13 +716,7 @@ void decrypt(unsigned char* encryptedMessage, unsigned char* key)
 		aesDecrypt(message + i * 16, expandedKey, i);
 	}
 
-	std::cout << "Decrypted message:" << std::endl;
-	for (int i = 0;i < lenOfOriginalMessage;i++)
-	{
-		std::cout << *(message + i);
-	}
-
-	delete[] message;
+	encryptedMessage = message;
 }
 
 void printStartUp()
@@ -763,15 +804,15 @@ void inputKeyFromConsole(char* key)
 
 unsigned char* StringToCharArray(std::string str)
 {
-	int sizeOfInput = str.length()+1; // '\0' minimum
+	int sizeOfInput = str.length() + 1; // '\0' minimum
 	unsigned char* inputLine = new unsigned char[sizeOfInput];
 
-	for (int i = 0;i < sizeOfInput;i++) 
+	for (int i = 0;i < sizeOfInput;i++)
 	{
 		inputLine[i] = str[i];
 	}
 
-	inputLine[sizeOfInput-1] = '\0';
+	inputLine[sizeOfInput - 1] = '\0';
 	return inputLine;
 }
 
@@ -877,7 +918,7 @@ bool readFromFile(unsigned char*& message, unsigned char*& key)
 		int counter = 0;
 		// Use a while loop together with the getline() function to read the file line by line
 		if (MyReadFile.is_open()) {
-			while (!MyReadFile.eof() && counter < 2) 
+			while (!MyReadFile.eof() && counter < 2)
 			{
 				// Output the text from the file
 				if (counter == 0) {
@@ -885,7 +926,7 @@ bool readFromFile(unsigned char*& message, unsigned char*& key)
 					message = StringToCharArray(line);
 					counter++;
 				}
-				else if (counter == 1) 
+				else if (counter == 1)
 				{
 					std::getline(MyReadFile, line);
 					key = StringToCharArray(line);
@@ -928,6 +969,8 @@ void engine()
 		case 1:
 		{
 			readFromConsole(message, key);
+			encrypt(message, key);
+			printEncryptedMessageToConsole(message);
 			break;
 		}
 		case 2:
@@ -936,6 +979,8 @@ void engine()
 			{
 				return;
 			}
+			encrypt(message, key);
+			printEncryptedMessageToFile(message);
 			break;
 		}
 		case 3:
@@ -948,7 +993,6 @@ void engine()
 			return;
 		}
 		}
-		encrypt(message, key);
 		break;
 	}
 	case 2:
@@ -960,6 +1004,8 @@ void engine()
 		case 1:
 		{
 			readFromConsole(message, key);
+			decrypt(message, key);
+			printDecryptedMessageToConsole(message);
 			break;
 		}
 		case 2:
@@ -968,6 +1014,8 @@ void engine()
 			{
 				return;
 			}
+			decrypt(message, key);
+			printDecryptedMessageToFile(message);
 			break;
 		}
 		case 3:
@@ -980,7 +1028,6 @@ void engine()
 			return;
 		}
 		}
-		decrypt(message, key);
 		break;
 	}
 	case 3:
@@ -993,6 +1040,9 @@ void engine()
 		return;
 	}
 	}
+
+	delete[] message;
+	delete[] key;
 }
 
 int main()
