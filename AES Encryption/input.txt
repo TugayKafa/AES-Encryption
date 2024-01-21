@@ -1,4 +1,4 @@
-I am very good at programmin!
+2F 2E 59 27 F5 B8 FC 43 00 47 89 F7 8A 18 3F 22 AE 9D 39 EC 75 F1 08 08 6E F8 65 3B 3C B4 01 3E 
 TugayKafa1123456
 
 
@@ -34,3 +34,22 @@ Output in "result.txt" file: 16 0d 48 fa 5a 41 94 b2 fb d2 8f d3 cd 32 75 4b
 Decrypted message: 7A E0 C8 AD 6A 55 26 39 16 D3 B0 A2 A4 87 70 24 F2 40 B9 0D 58 1C DB 69 58 85 7F 80 70 1A 3C F5 
 Key: TugayKafa1123456
 Output in "result.txt" file: I am very good in programmin!
+
+Decrypted message: 2F 2E 59 27 F5 B8 FC 43 00 47 89 F7 8A 18 3F 22 AE 9D 39 EC 75 F1 08 08 6E F8 65 3B 3C B4 01 3E 
+Key: TugayKafa1123456
+Output in "result.txt" file: I am very good at programmin!
+
+/**
+*
+* Solution to course project # 10
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2023/2024
+*
+* @author Tugay Kafa
+* @idnumber 4MI0600275
+* @compiler VC
+*
+* test inputs
+*
+*/

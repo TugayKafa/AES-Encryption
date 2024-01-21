@@ -1,4 +1,19 @@
-﻿#include <iostream>
+﻿/**
+*
+* Solution to course project # 10
+* Introduction to programming course
+* Faculty of Mathematics and Informatics of Sofia University
+* Winter semester 2023/2024
+*
+* @author Tugay Kafa
+* @idnumber 4MI0600275
+* @compiler VC
+*
+* Source file
+*
+*/
+
+#include <iostream>
 #include <fstream>
 #include <string>
 
