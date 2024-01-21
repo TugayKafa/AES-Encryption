@@ -1,5 +1,6 @@
 ﻿#include <iostream>
 #include <fstream>
+#include <string>
 
 const unsigned char S_BOX[256] =
 {
@@ -703,7 +704,7 @@ void printReadMessageMenu()
 	std::cout << "3.Exit\n";
 }
 
-unsigned char* inputArray()
+unsigned char* inputArrayFromConsole()
 {
 	int sizeOfInput = 1; // '\0' minimum
 	unsigned char* inputLine = new unsigned char[sizeOfInput];
@@ -748,7 +749,7 @@ unsigned char* inputArray()
 	return inputLine;
 }
 
-void inputKey(char* key)
+void inputKeyFromConsole(char* key)
 {
 	int sizeOfInput = 16; // '\0' minimum
 	key = new char[sizeOfInput];
@@ -760,12 +761,152 @@ void inputKey(char* key)
 	}
 }
 
+unsigned char* StringToCharArray(std::string str)
+{
+	int sizeOfInput = str.length()+1; // '\0' minimum
+	unsigned char* inputLine = new unsigned char[sizeOfInput];
+
+	for (int i = 0;i < sizeOfInput;i++) 
+	{
+		inputLine[i] = str[i];
+	}
+
+	inputLine[sizeOfInput-1] = '\0';
+	return inputLine;
+}
+
 void readFromConsole(unsigned char*& message, unsigned char*& key)
 {
 	std::cout << "Write your message\n";
-	message = inputArray();
+	message = inputArrayFromConsole();
 	std::cout << "Write your key. It has to be 16 charachters without whitespaces!\n";
-	key = inputArray();
+	key = inputArrayFromConsole();
+}
+
+bool isAllowedSymbol(char symbol)
+{
+	switch (symbol)
+		//Here we need validation for emojys and alt codes too
+	{
+	case '#':
+	case '%':
+	case '&':
+	case '{':
+	case '}':
+	case '\\':
+	case '<':
+	case '>':
+	case '*':
+	case '?':
+	case '/':
+	case ' ':
+	case '$':
+	case '!':
+	case '\"':
+	case '\'':
+	case ':':
+	case '@':
+	case '+':
+	case '`':
+	case '|':
+	case '=':
+	{
+		"You have unallowed symbol in your file name!!\n";
+		return false;
+	}
+	}
+	return true;
+}
+
+bool isFileNameValid(char* fileName)
+{
+	int sizeOfName = strLenght(fileName);
+
+	if (sizeOfName < 5)
+	{
+		return false;
+	}
+
+	if (fileName[sizeOfName - 4] != '.')
+	{
+		std::cout << "Unrecognizable file type!\n";
+		return false;
+	}
+
+	if (fileName[sizeOfName - 3] != 't' || fileName[sizeOfName - 1] != 't')
+	{
+		std::cout << "Unrecognizable file type!\n";
+
+		return false;
+	}
+
+	if (fileName[sizeOfName - 2] != 'x')
+	{
+		std::cout << "Unrecognizable file type!\n";
+		return false;
+	}
+
+	for (int i = 0;i < sizeOfName - 4;i++)
+	{
+		if (!isAllowedSymbol(fileName[i]))
+		{
+			return false;
+		}
+	}
+
+	return true;
+}
+
+bool readFromFile(unsigned char*& message, unsigned char*& key)
+{
+	std::cout << "1. Your file has to be in the same directory with the project and must have type \".txt\"\n";
+	std::cout << "2. Please write only 2 lines in the file.\n";
+	std::cout << "   If the file has more than two lines, program will assume that the message is on the first line and key on the second line!\n";
+	std::cout << "2.1. First line has to be your encrypted/decrypted message\n";
+	std::cout << "2.2. Second line has to be your key\n";
+	std::cout << "3. Your encrypted/decrypted message will be displayed in result.txt\n";
+
+	std::cout << "File name: ";
+
+	char* fileName = nullptr;
+	fileName = (char*)inputArrayFromConsole();
+	if (isFileNameValid(fileName))
+	{
+		std::string line = "";
+		std::ifstream MyReadFile(fileName);
+		int counter = 0;
+		// Use a while loop together with the getline() function to read the file line by line
+		if (MyReadFile.is_open()) {
+			while (!MyReadFile.eof() && counter < 2) 
+			{
+				// Output the text from the file
+				if (counter == 0) {
+					std::getline(MyReadFile, line);
+					message = StringToCharArray(line);
+					counter++;
+				}
+				else if (counter == 1) 
+				{
+					std::getline(MyReadFile, line);
+					key = StringToCharArray(line);
+					counter++;
+				}
+			}
+			MyReadFile.close();
+		}
+		else {
+			std::cout << "File does not exist!";
+			return false;
+		}
+		// Close the file
+
+		return true;
+	}
+	else
+	{
+		std::cout << "Invalid file name!";
+		return false;
+	}
 }
 
 void engine()
@@ -778,70 +919,23 @@ void engine()
 	unsigned char* key = {};
 	switch (choice)
 	{
+	case 1:
+	{
+		printReadMessageMenu();
+		std::cin >> choice;
+		switch (choice)
+		{
 		case 1:
 		{
-			printReadMessageMenu();
-			std::cin >> choice;
-			switch (choice)
-			{
-				case 1:
-				{
-					readFromConsole(message, key);
-					break;
-				}
-				case 2:
-				{
-					std::cout << "File name:";
-					
-					char* fileName = nullptr;
-					fileName = (char*) inputArray();
-					
-					break;
-				}
-				case 3:
-				{
-					return;
-				}
-				default:
-				{
-					std::cout << "Invalid choice!";
-					return;
-				}
-			}
-			encrypt(message, key);
+			readFromConsole(message, key);
 			break;
 		}
 		case 2:
 		{
-			printReadMessageMenu();
-			std::cin >> choice;
-			switch (choice)
+			if (!readFromFile(message, key))
 			{
-				case 1:
-				{
-					readFromConsole(message, key);
-					break;
-				}
-				case 2:
-				{
-					std::cout << "File name:";
-					
-					char* fileName = nullptr;
-					fileName = (char*)inputArray();
-
-					break;
-				}
-				case 3:
-				{
-					return;
-				}
-				default:
-				{
-					std::cout << "Invalid choice!";
-					return;
-				}
+				return;
 			}
-			decrypt(message, key);
 			break;
 		}
 		case 3:
@@ -853,6 +947,51 @@ void engine()
 			std::cout << "Invalid choice!";
 			return;
 		}
+		}
+		encrypt(message, key);
+		break;
+	}
+	case 2:
+	{
+		printReadMessageMenu();
+		std::cin >> choice;
+		switch (choice)
+		{
+		case 1:
+		{
+			readFromConsole(message, key);
+			break;
+		}
+		case 2:
+		{
+			if (!readFromFile(message, key))
+			{
+				return;
+			}
+			break;
+		}
+		case 3:
+		{
+			return;
+		}
+		default:
+		{
+			std::cout << "Invalid choice!";
+			return;
+		}
+		}
+		decrypt(message, key);
+		break;
+	}
+	case 3:
+	{
+		return;
+	}
+	default:
+	{
+		std::cout << "Invalid choice!";
+		return;
+	}
 	}
 }
 
