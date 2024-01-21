@@ -84,6 +84,7 @@ const unsigned char mul3[256] =
 	0x0b,0x08,0x0d,0x0e,0x07,0x04,0x01,0x02,0x13,0x10,0x15,0x16,0x1f,0x1c,0x19,0x1a
 };
 
+//Lookup table for multiplication by 9
 const unsigned char mul9[256] =
 {
 	0x00,0x09,0x12,0x1b,0x24,0x2d,0x36,0x3f,0x48,0x41,0x5a,0x53,0x6c,0x65,0x7e,0x77,
@@ -104,6 +105,7 @@ const unsigned char mul9[256] =
 	0x31,0x38,0x23,0x2a,0x15,0x1c,0x07,0x0e,0x79,0x70,0x6b,0x62,0x5d,0x54,0x4f,0x46
 };
 
+//Lookup table for multiplication by 11
 const unsigned char mul11[256] =
 {
 	0x00,0x0b,0x16,0x1d,0x2c,0x27,0x3a,0x31,0x58,0x53,0x4e,0x45,0x74,0x7f,0x62,0x69,
@@ -124,6 +126,7 @@ const unsigned char mul11[256] =
 	0xca,0xc1,0xdc,0xd7,0xe6,0xed,0xf0,0xfb,0x92,0x99,0x84,0x8f,0xbe,0xb5,0xa8,0xa3
 };
 
+//Lookup table for multiplication by 13
 const unsigned char mul13[256] =
 {
 	0x00,0x0d,0x1a,0x17,0x34,0x39,0x2e,0x23,0x68,0x65,0x72,0x7f,0x5c,0x51,0x46,0x4b,
@@ -144,6 +147,7 @@ const unsigned char mul13[256] =
 	0xdc,0xd1,0xc6,0xcb,0xe8,0xe5,0xf2,0xff,0xb4,0xb9,0xae,0xa3,0x80,0x8d,0x9a,0x97
 };
 
+//Lookup table for multiplication by 14
 const unsigned char mul14[256] =
 {
 	0x00,0x0e,0x1c,0x12,0x38,0x36,0x24,0x2a,0x70,0x7e,0x6c,0x62,0x48,0x46,0x54,0x5a,
@@ -164,6 +168,7 @@ const unsigned char mul14[256] =
 	0xd7,0xd9,0xcb,0xc5,0xef,0xe1,0xf3,0xfd,0xa7,0xa9,0xbb,0xb5,0x9f,0x91,0x83,0x8d
 };
 
+//This RCON lookup table is smaller because we do not need more values, because we are using 128-bit key
 const unsigned char rcon[256] =
 {
 	0x8d,0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80,0x1b,0x36,0x6c,0xd8,0xab,0x4d,0x9a,
@@ -188,9 +193,6 @@ void KeyExpansionCore(unsigned char* in, unsigned char i)
 	in[1] = in[2];
 	in[2] = in[3];
 	in[3] = t;
-
-	//unsigned int* q = (unsigned int*)in;
-	//*q = (*q >> 8) | ((*q & 0xff) << 24);
 
 	//S-Box four bytes
 	in[0] = S_BOX[in[0]];
@@ -239,6 +241,7 @@ void keyExpansion(unsigned char* inputKey, unsigned char* expandedKeys)
 	}
 }
 
+//sub state values with S_BOX values
 void subBytes(unsigned char* state)
 {
 	for (int i = 0;i < 16;i++)
@@ -247,6 +250,11 @@ void subBytes(unsigned char* state)
 	}
 }
 
+/*
+Shift second row by one to left
+Shift third row by two to left
+Shift fourth row by three to left
+*/
 void shiftRows(unsigned char* state)
 {
 	char tmp[16] = {};
@@ -412,7 +420,7 @@ void encrypt(unsigned char*& message, unsigned char  key[16])
 	int originalLen = strLenght((const char*)message);
 	int lenOfPaddedMessage = originalLen;
 
-	//If message size is not 16bytes block, we fill the missing bytes with 0 zeros
+	//If message size is not 16 bytes block, we fill the missing bytes with 0 zeros
 	if (lenOfPaddedMessage % 16 != 0)
 	{
 		lenOfPaddedMessage = (lenOfPaddedMessage / 16 + 1) * 16;
@@ -439,6 +447,7 @@ void encrypt(unsigned char*& message, unsigned char  key[16])
 	message = paddedMessage;
 }
 
+//Reverse shifted rows
 void reverseShiftRows(unsigned char* state)
 {
 	char tmp[16] = {};
@@ -469,6 +478,7 @@ void reverseShiftRows(unsigned char* state)
 	}
 }
 
+//Get the previous round state bytes
 void inverseSubBytes(unsigned char* state)
 {
 	for (int i = 0;i < 16;i++)
@@ -525,7 +535,6 @@ void inverseMixColums(unsigned char* state)
 	{
 		state[i] = tmp[i];
 	}
-
 }
 
 void aesDecrypt(unsigned char* message, unsigned char* expandedKey, int block)
@@ -558,6 +567,7 @@ void aesDecrypt(unsigned char* message, unsigned char* expandedKey, int block)
 	}
 }
 
+//validate decrypted message symbol
 bool isHEXSymbol(unsigned char& ch)
 {
 	if ((ch >= 'A' && ch <= 'F') || (ch >= '0' && ch <= '9'))
@@ -599,6 +609,7 @@ int hexCharToDecimal(char hexChar) {
 	}
 }
 
+//Coount HEX values from which we determine how many blocks we have in our message
 int countOfWords(unsigned char* message, int lenght)
 {
 	if (!countOfWords)
@@ -637,9 +648,17 @@ int countOfWords(unsigned char* message, int lenght)
 		wordsCounter++;
 	}
 
-	return wordsCounter;
+	if (wordsCounter % 16 == 0)
+	{
+		return wordsCounter;
+	}
+	else
+	{
+		return -2;
+	}
 }
 
+//Transform HEX values from decrypted message to decimal values, which decimal values are our symbols
 void hexToDecimal
 (
 	unsigned char* encryptedMessage, int originalLen,
@@ -693,15 +712,20 @@ void printDecryptedMessageToFile(unsigned char* message)
 	file.close();
 }
 
-void decrypt(unsigned char*& encryptedMessage, unsigned char* key)
+bool decrypt(unsigned char*& encryptedMessage, unsigned char* key)
 {
 	int originalLen = strLenght((const char*)encryptedMessage);
 	int lenOfOriginalMessage = countOfWords(encryptedMessage, originalLen);
 
-	if (lenOfOriginalMessage < 0)
+	if (lenOfOriginalMessage == -1)
 	{
-		std::cout << "Invalid input!\n Your encrypted message should be in HEX!";
-		return;
+		std::cout << "Invalid input!\nYour encrypted message should be in HEX!";
+		return false;
+	}
+	else if (lenOfOriginalMessage == -2)
+	{
+		std::cout << "Invalid input!\nEncrypted message is not full!";
+		return false;
 	}
 
 	unsigned char* message = new unsigned char[lenOfOriginalMessage];
@@ -711,8 +735,9 @@ void decrypt(unsigned char*& encryptedMessage, unsigned char* key)
 	unsigned char expandedKey[176] = {};
 	keyExpansion(key, expandedKey);
 
+	int blocks = lenOfOriginalMessage / 16;
 	//Encrypted padded message:
-	for (int i = lenOfOriginalMessage / 16 - 1;i >= 0;i--) {
+	for (int i = blocks - 1;i >= 0;i--) {
 		aesDecrypt(message + i * 16, expandedKey, i);
 	}
 
@@ -792,7 +817,7 @@ unsigned char* inputArrayFromConsole()
 
 void inputKeyFromConsole(char* key)
 {
-	int sizeOfInput = 16; // '\0' minimum
+	int sizeOfInput = 16;
 	key = new char[sizeOfInput];
 	for (int i = 0;i < sizeOfInput;i++)
 	{
@@ -804,7 +829,7 @@ void inputKeyFromConsole(char* key)
 
 unsigned char* StringToCharArray(std::string str)
 {
-	int sizeOfInput = str.length() + 1; // '\0' minimum
+	int sizeOfInput = str.length() + 1;
 	unsigned char* inputLine = new unsigned char[sizeOfInput];
 
 	for (int i = 0;i < sizeOfInput;i++)
@@ -824,6 +849,7 @@ void readFromConsole(unsigned char*& message, unsigned char*& key)
 	key = inputArrayFromConsole();
 }
 
+//validation for file name symbols
 bool isAllowedSymbol(char symbol)
 {
 	switch (symbol)
@@ -916,11 +942,10 @@ bool readFromFile(unsigned char*& message, unsigned char*& key)
 		std::string line = "";
 		std::ifstream MyReadFile(fileName);
 		int counter = 0;
-		// Use a while loop together with the getline() function to read the file line by line
+
 		if (MyReadFile.is_open()) {
 			while (!MyReadFile.eof() && counter < 2)
 			{
-				// Output the text from the file
 				if (counter == 0) {
 					std::getline(MyReadFile, line);
 					message = StringToCharArray(line);
@@ -1004,8 +1029,10 @@ void engine()
 		case 1:
 		{
 			readFromConsole(message, key);
-			decrypt(message, key);
-			printDecryptedMessageToConsole(message);
+			if (decrypt(message, key))
+			{
+				printDecryptedMessageToConsole(message);
+			}
 			break;
 		}
 		case 2:
@@ -1014,8 +1041,10 @@ void engine()
 			{
 				return;
 			}
-			decrypt(message, key);
-			printDecryptedMessageToFile(message);
+			if (decrypt(message, key))
+			{
+				printDecryptedMessageToFile(message);
+			}
 			break;
 		}
 		case 3:
