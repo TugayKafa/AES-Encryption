@@ -50,4 +50,9 @@ Your result will be displayed in result.txt file
 
 ![image](https://github.com/TugayKafa/AES-Encryption/assets/86955459/1387b3ff-b731-4a42-b461-678f99d65993)
 
+You can check if displayed result is correct here:
+```
+http://aes.online-domain-tools.com
+```
+
 And that is it. Have fun :)
